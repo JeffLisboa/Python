@@ -36,3 +36,20 @@ def salvar_carro(marca, modelo, ano, placa):
 salvar_carro("Fiat", "Idea", 2011, "KVX-E245")
 #Ou podemos inverter a ordem desde que especifiquemos o nome do parametro
 salvar_carro(placa="KVX-E245", modelo="Idea", ano=2011, marca="Fiat")
+
+
+# VARIÁVEIS DENTRO DE UMA FUNÇÃO
+#Variáveis que existeapenas dentro da função sao chamadas de variáveis local
+#Para utilizar dentro da função uma variável q eestá fora dela, precisamos dizer que ela é global
+
+salario = 2500
+
+def salario_bonus(bonus):
+    #Para a vaiável salario que foi declarada fora da função funcionar dentro dela, precisamos informar que ela é global
+    #caso contrário ela nao funcionaria pois nao existe variável salario declarada dentro(local) da função
+    global salario 
+    salario += bonus
+    return salario
+
+salario_com_bonus = salario_bonus(500)
+print(salario_com_bonus) #3000
